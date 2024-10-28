@@ -22,7 +22,7 @@ const Header = () => {
             Create Image
           </Link>
           <a
-            href="https://github.com/Coder-philosopher/projectAI" // Replace with your actual GitHub repo link
+            href="https://github.com/Coder-philosopher/projectAI"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition duration-200 shadow-md"

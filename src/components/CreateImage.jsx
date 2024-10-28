@@ -6,19 +6,17 @@ const CreateImage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Access the API key from .env file (for Vite)
-  const apiKey = import.meta.env.VITE_API_KEY; // If you're using Vite, otherwise keep it as process.env.REACT_APP_API_KEY
-
+  const apiKey = import.meta.env.VITE_API_KEY; 
   const handleGenerateImage = async () => {
     const API_URL = "https://api-inference.huggingface.co/models/ZB-Tech/Text-to-Image";
     const headers = {
-      Authorization: `Bearer ${apiKey}`, // Use the API key
+      Authorization: `Bearer ${apiKey}`, 
     };
     
     try {
       setError(null);
       setLoading(true);
-      setImageUrl(null); // Reset previous image
+      setImageUrl(null); 
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: headers,
@@ -28,7 +26,7 @@ const CreateImage = () => {
       if (!response.ok) throw new Error('Image generation failed. Please try again.');
 
       const imageBlob = await response.blob();
-      setImageUrl(URL.createObjectURL(imageBlob)); // Set image URL for display and download
+      setImageUrl(URL.createObjectURL(imageBlob));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -45,13 +43,13 @@ const CreateImage = () => {
         placeholder="Enter your image description, e.g., 'Astronaut riding a horse'"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        disabled={loading} // Disable textarea when loading
+        disabled={loading}
       />
 
       <button
         onClick={handleGenerateImage}
         className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-        disabled={loading} // Disable button when loading
+        disabled={loading}
       >
         {loading ? (
           <span className="animate-spin inline-block w-5 h-5 border-2 border-t-transparent border-white rounded-full"></span>
