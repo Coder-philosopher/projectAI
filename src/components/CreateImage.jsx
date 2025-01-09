@@ -65,7 +65,7 @@ const CreateImage = () => {
           <img src={imageUrl} alt="Generated result" className="w-full max-w-md rounded-lg shadow-md mb-4" />
           <a
             href={imageUrl}
-            download="generated-image.png"
+            download="Abdullah.png"
             className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg shadow-md transition-transform duration-300"
           >
             Download Image
